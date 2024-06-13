@@ -1,2 +1,2 @@
-# public-api-typescript-client
-Simple client for public AimProxy API for TypeScript 
+# public-api-typescript-sdk
+Simple sdk for public AimProxy API
