@@ -1,3 +1,3 @@
-export * from './preferences.type';
-export * from './preferences.client';
+export * from './preferences-metadata.client';
 export * from './dto'
+export * from './type';

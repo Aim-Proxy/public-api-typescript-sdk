@@ -1,6 +1,6 @@
-import {ContactLanguage, NotificationMethod} from "../preferences.type";
+import {ContactLanguage, NotificationMethod} from "../type/preferences-metadata";
 
-export interface UpdatePreferencesDto {
+export interface UpdatePreferences {
   notificationMethod?: [NotificationMethod, ...NotificationMethod[]],
   contactLanguage?: ContactLanguage,
   isSendAuthorizationNotifications?: boolean;

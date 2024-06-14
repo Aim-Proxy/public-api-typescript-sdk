@@ -1,11 +1,11 @@
 import {Throwable} from '../../../../utils/type/throwable';
-import {PreferencesMetadata} from './preferences.type';
+import {PreferencesMetadata} from './type/preferences-metadata';
 import {Nullable} from '../../../../utils/type/nullable';
 import {Client} from '../../../../abstract/client';
 import {Cookies} from '../../../../utils/type/cookies';
-import {UpdatePreferencesDto} from "./dto";
+import {UpdatePreferences} from "./dto";
 
-export class PreferencesClient extends Client {
+export class PreferencesMetadataClient extends Client {
   constructor(base: string, path: string, cookies: Cookies) {
     super(base, path, cookies);
   }
@@ -28,7 +28,7 @@ export class PreferencesClient extends Client {
     );
   }
 
-  async updateMy(dto: UpdatePreferencesDto): Promise<Throwable<PreferencesMetadata>> {
+  async updateMy(dto: UpdatePreferences): Promise<Throwable<PreferencesMetadata>> {
     return this.call<Throwable<PreferencesMetadata>>(
       'PATCH',
       JSON.stringify(dto),
@@ -36,7 +36,7 @@ export class PreferencesClient extends Client {
     );
   }
 
-  async updateByUserId(userId: string, dto: UpdatePreferencesDto): Promise<Throwable<Nullable<PreferencesMetadata>>> {
+  async updateByUserId(userId: string, dto: UpdatePreferences): Promise<Throwable<Nullable<PreferencesMetadata>>> {
     return this.call<Throwable<PreferencesMetadata>>(
       'PATCH',
       JSON.stringify(dto),
