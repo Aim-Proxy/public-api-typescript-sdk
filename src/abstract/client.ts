@@ -15,12 +15,6 @@ export class Client {
   protected readonly url: string;
   private cookies: Cookies;
 
-  setCookies(cookies: Cookies): void {
-    for (const client of ClientsPool) {
-      client.cookies = cookies;
-    }
-  }
-
   protected async call<T>(
     method: string,
     body: string | null,
@@ -34,6 +28,21 @@ export class Client {
       body,
     })
       .then(response => {
+        if (response.headers.has('Set-Cookies')) {
+          const getCookie = (str: string, name: string): string =>
+            str
+              .substring(str.indexOf(name), str.length - 1)
+              .split('=')[1]!
+              .split(';')[0]!;
+
+          const header: string = response.headers.get('Set-Cookies')!;
+
+          this.setCookies({
+            authorization: getCookie(header, 'Authentication'),
+            refresh: getCookie(header, 'Refresh'),
+          });
+        }
+
         return response.json();
       })
       .then(data => this.parse<T>(data));
@@ -41,6 +50,12 @@ export class Client {
 
   protected subPath(path: string): string {
     return this.url + path;
+  }
+
+  private setCookies(cookies: Cookies): void {
+    for (const client of ClientsPool) {
+      client.cookies = cookies;
+    }
   }
 
   private parse<T>(response: ApiResponse<T>): Throwable<T> {
