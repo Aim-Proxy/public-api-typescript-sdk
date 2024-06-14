@@ -1,6 +1,8 @@
 export class PublicApiClient {
   constructor() {
     this.user = {};
+import {Client} from "./abstract/client";
+export const ClientsPool: Client[] = []
     this.tariff = {};
     this.payment = {};
     this.key = {};
