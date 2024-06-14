@@ -1,14 +1,19 @@
-export class PublicApiClient {
-  constructor() {
-    this.user = {};
+import {Cookies} from "./utils/type/cookies";
 import {Client} from "./abstract/client";
+
 export const ClientsPool: Client[] = []
+
+export class PublicApiClient extends Client {
+  constructor(base: string, cookies: Cookies) {
+    super(base, "", cookies)
+
+    this.user = {}
     this.tariff = {};
     this.payment = {};
     this.key = {};
     this.calculator = {};
     this.ban = {};
-    this.auth = {};
+    this.auth = {}
   }
 
   readonly user: object;
