@@ -13,7 +13,7 @@ export class Client {
   }
 
   protected readonly url: string;
-  private cookies: Cookies;
+  cookies: Cookies;
 
   protected async call<T>(
     method: string,
