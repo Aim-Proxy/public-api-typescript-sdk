@@ -33,8 +33,14 @@ export class Client {
       headers,
       body,
     })
-      .then(response => { console.log(response.headers); return response.json()})
+      .then(response => {
+        return response.json();
+      })
       .then(data => this.parse<T>(data));
+  }
+
+  protected subPath(path: string): string {
+    return this.url + path;
   }
 
   private parse<T>(response: ApiResponse<T>): Throwable<T> {
@@ -51,9 +57,9 @@ export class Client {
 
   private getHeaders(): Record<string, any> {
     return {
-      'Cookie': `Authentication=${this.cookies.authorization};Refresh=${this.cookies.refresh}`,
-      'Content-Type': "application/json",
-      'Accept': "application/json"
-    }
+      Cookie: `Authentication=${this.cookies.authorization};Refresh=${this.cookies.refresh}`,
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    };
   }
 }
