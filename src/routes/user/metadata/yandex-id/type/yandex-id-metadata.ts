@@ -1,4 +1,4 @@
-import {Nullable} from "../../../../../utils/type/nullable";
+import {Nullable} from '../../../../../utils/type/nullable';
 
 export interface YandexIdMetadata {
   userId: string;

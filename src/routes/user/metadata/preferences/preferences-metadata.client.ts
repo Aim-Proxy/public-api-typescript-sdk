@@ -3,7 +3,7 @@ import {PreferencesMetadata} from './type/preferences-metadata';
 import {Nullable} from '../../../../utils/type/nullable';
 import {Client} from '../../../../abstract/client';
 import {Cookies} from '../../../../utils/type/cookies';
-import {UpdatePreferences} from "./dto";
+import {UpdatePreferences} from './dto';
 
 export class PreferencesMetadataClient extends Client {
   constructor(base: string, path: string, cookies: Cookies) {
@@ -14,7 +14,7 @@ export class PreferencesMetadataClient extends Client {
     return this.call<Throwable<PreferencesMetadata>>(
       'GET',
       null,
-      this.subPath("/my")
+      this.subPath('/my')
     );
   }
 
@@ -28,15 +28,20 @@ export class PreferencesMetadataClient extends Client {
     );
   }
 
-  async updateMy(dto: UpdatePreferences): Promise<Throwable<PreferencesMetadata>> {
+  async updateMy(
+    dto: UpdatePreferences
+  ): Promise<Throwable<PreferencesMetadata>> {
     return this.call<Throwable<PreferencesMetadata>>(
       'PATCH',
       JSON.stringify(dto),
-      this.subPath("/my")
+      this.subPath('/my')
     );
   }
 
-  async updateByUserId(userId: string, dto: UpdatePreferences): Promise<Throwable<Nullable<PreferencesMetadata>>> {
+  async updateByUserId(
+    userId: string,
+    dto: UpdatePreferences
+  ): Promise<Throwable<Nullable<PreferencesMetadata>>> {
     return this.call<Throwable<PreferencesMetadata>>(
       'PATCH',
       JSON.stringify(dto),

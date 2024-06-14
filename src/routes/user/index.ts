@@ -1,3 +1,3 @@
 export * from './type';
 export * from './dto';
-export * from './user.client'
+export * from './user.client';

@@ -1,13 +1,18 @@
 import {Cookies} from "./utils/type/cookies";
 import {Client} from "./abstract/client";
+import {Cookies} from './utils/type/cookies';
+import {Client} from './abstract/client';
+import {UserClient} from './routes/user';
 
-export const ClientsPool: Client[] = []
+export const ClientsPool: Client[] = [];
 
 export class PublicApiClient extends Client {
-  constructor(base: string, cookies: Cookies) {
-    super(base, "", cookies)
+  constructor(base: string) {
+    const cookies: Cookies = {authorization: '', refresh: ''};
 
-    this.user = {}
+    super(base, '', cookies);
+
+    this.user = new UserClient(this.url, '/user', cookies);
     this.tariff = {};
     this.payment = {};
     this.key = {};
@@ -16,7 +21,7 @@ export class PublicApiClient extends Client {
     this.auth = {}
   }
 
-  readonly user: object;
+  readonly user: UserClient;
   readonly tariff: object;
   readonly payment: object;
   readonly key: object;

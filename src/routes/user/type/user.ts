@@ -1,8 +1,8 @@
-import {Nullable} from "../../../utils/type/nullable";
-import {TelegramMetadata} from "../metadata/telegram";
-import {YandexIdMetadata} from "../metadata/yandex-id";
-import {GoogleMetadata} from "../metadata/google";
-import {PreferencesMetadata} from "../metadata/preferences";
+import {Nullable} from '../../../utils/type/nullable';
+import {TelegramMetadata} from '../metadata/telegram';
+import {YandexIdMetadata} from '../metadata/yandex-id';
+import {GoogleMetadata} from '../metadata/google';
+import {PreferencesMetadata} from '../metadata/preferences';
 
 export interface User {
   id: string;
@@ -17,7 +17,7 @@ export interface User {
     yandexId: Nullable<YandexIdMetadata>;
     google: Nullable<GoogleMetadata>;
     preferences: Nullable<PreferencesMetadata>;
-  }
+  };
 }
 
 export enum UserRole {

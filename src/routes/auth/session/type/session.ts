@@ -1,4 +1,4 @@
-import {Nullable} from "../../../../utils/type/nullable";
+import {Nullable} from '../../../../utils/type/nullable';
 
 export interface Session {
   id: string;

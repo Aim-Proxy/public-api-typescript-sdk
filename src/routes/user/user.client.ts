@@ -3,7 +3,7 @@ import {Client} from '../../abstract/client';
 import {Cookies} from '../../utils/type/cookies';
 import {Throwable} from '../../utils/type/throwable';
 import {User} from './type';
-import {CreateUserDto, UpdateUserDto} from "./dto";
+import {CreateUserDto, UpdateUserDto} from './dto';
 
 export class UserClient extends Client {
   constructor(base: string, path: string, cookies: Cookies) {
