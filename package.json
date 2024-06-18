@@ -1,8 +1,9 @@
 {
-  "name": "public-api-typescript-client",
+  "name": "aim-proxy-api-sdk",
   "version": "1.0.0",
   "description": "Simple client for public AimProxy API",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "gts lint",
@@ -15,17 +16,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Salvia-splendens/public-api-typescript-client.git"
+    "url": "git+https://github.com/Aim-Proxy/public-api-typescript-sdk.git"
   },
   "author": "Artur Ispusinov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Salvia-splendens/public-api-typescript-client/issues"
+    "url": "https://github.com/Aim-Proxy/public-api-typescript-sdk"
   },
-  "homepage": "https://github.com/Salvia-splendens/public-api-typescript-client#readme",
+  "homepage": "https://github.com/Aim-Proxy/public-api-typescript-sdk",
+  "dependencies": {
+    "typescript": "^5.4.3"
+  },
   "devDependencies": {
     "gts": "^5.3.1",
-    "typescript": "^5.4.3",
     "@types/node": "20.12.7"
   }
 }
