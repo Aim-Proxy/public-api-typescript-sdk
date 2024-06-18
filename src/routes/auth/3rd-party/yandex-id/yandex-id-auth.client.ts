@@ -1,10 +1,9 @@
 import {Client} from "../../../../abstract/client";
 import {Cookies} from "../../../../utils/type/cookies";
-import {GoogleAuthCallbackDto} from "../google";
 import {Throwable} from "../../../../utils/type/throwable";
 import {User} from "../../../user";
 import {FutureMetadata} from "../../future-metadata";
-import {YandexIdAuthCallback} from "./dto";
+import {YandexIdAuthCallbackDto} from "./dto";
 
 export class YandexIdAuthClient extends Client {
   constructor(base: string, path: string, cookies: Cookies) {
@@ -15,7 +14,7 @@ export class YandexIdAuthClient extends Client {
     return this.call<string>('GET', null, this.subPath('/authorization-url'));
   }
 
-  async signIn(dto: YandexIdAuthCallback): Promise<Throwable<User>> {
+  async signIn(dto: YandexIdAuthCallbackDto): Promise<Throwable<User>> {
     return this.call<Throwable<User>>(
       'POST',
       JSON.stringify(dto),
@@ -23,7 +22,7 @@ export class YandexIdAuthClient extends Client {
     );
   }
 
-  async signUp(dto: GoogleAuthCallbackDto): Promise<Throwable<FutureMetadata>> {
+  async signUp(dto: YandexIdAuthCallbackDto): Promise<Throwable<FutureMetadata>> {
     return this.call<Throwable<FutureMetadata>>(
       'POST',
       JSON.stringify(dto),
@@ -31,7 +30,7 @@ export class YandexIdAuthClient extends Client {
     );
   }
 
-  async add(dto: GoogleAuthCallbackDto): Promise<Throwable<void>> {
+  async add(dto: YandexIdAuthCallbackDto): Promise<Throwable<void>> {
     return this.call<Throwable<void>>(
       'POST',
       JSON.stringify(dto),
