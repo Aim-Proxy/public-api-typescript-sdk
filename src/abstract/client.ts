@@ -29,23 +29,12 @@ export class Client {
     })
       .then(response => {
         if (response.headers.has('Set-Cookies')) {
-          const getCookie = (str: string, name: string): string =>
-            str
-              .substring(str.indexOf(name), str.length - 1)
-              .split('=')[1]!
-              .split(';')[0]!;
-
-          const header: string = response.headers.get('Set-Cookies')!;
-
-          this.setCookies({
-            authorization: getCookie(header, 'Authentication'),
-            refresh: getCookie(header, 'Refresh'),
-          });
+          this.parseCookies(response.headers.get('Set-Cookies')!)
         }
 
         return response.json();
       })
-      .then(data => this.parse<T>(data));
+      .then(data => this.parseData<T>(data));
   }
 
   protected subPath(path: string): string {
@@ -58,7 +47,7 @@ export class Client {
     }
   }
 
-  private parse<T>(response: ApiResponse<T>): Throwable<T> {
+  private parseData<T>(response: ApiResponse<T>): Throwable<T> {
     switch (response.statusCode) {
       case 200:
       case 201: {
@@ -68,6 +57,19 @@ export class Client {
         throw new ApiError(response.statusCode, response.message);
       }
     }
+  }
+
+  private parseCookies(header: string): void {
+    const getCookie = (str: string, name: string): string =>
+      str
+        .substring(str.indexOf(name), str.length - 1)
+        .split('=')[1]!
+        .split(';')[0]!;
+
+    this.setCookies({
+      authorization: getCookie(header, 'Authentication'),
+      refresh: getCookie(header, 'Refresh'),
+    });
   }
 
   private getHeaders(): Record<string, any> {
