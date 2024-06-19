@@ -1,4 +1,4 @@
 export interface CreateLocationDto {
   name: string;
-  coefficient: number
+  coefficient: number;
 }

@@ -1,7 +1,7 @@
-import {Client} from "../../../../abstract/client";
-import {Cookies} from "../../../../utils/type/cookies";
-import {Throwable} from "../../../../utils/type/throwable";
-import {ProxyVersion, ProxyVersionValue} from "./type";
+import {Client} from '../../../../abstract/client';
+import {Cookies} from '../../../../utils/type/cookies';
+import {Throwable} from '../../../../utils/type/throwable';
+import {ProxyVersion, ProxyVersionValue} from './type';
 
 export class ProxyVersionClient extends Client {
   constructor(base: string, path: string, cookies: Cookies) {
@@ -12,9 +12,7 @@ export class ProxyVersionClient extends Client {
     return this.call<Throwable<ProxyVersion[]>>('GET', null);
   }
 
-  async getByValue(
-    value: ProxyVersionValue
-  ): Promise<Throwable<ProxyVersion>> {
+  async getByValue(value: ProxyVersionValue): Promise<Throwable<ProxyVersion>> {
     return this.call<Throwable<ProxyVersion>>(
       'GET',
       null,

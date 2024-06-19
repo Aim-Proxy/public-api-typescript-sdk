@@ -1,2 +1,2 @@
 export * from './type';
-export * from './proxy-version.client'
+export * from './proxy-version.client';

@@ -1,8 +1,8 @@
-import {Client} from "../../../../abstract/client";
-import {Cookies} from "../../../../utils/type/cookies";
-import {Throwable} from "../../../../utils/type/throwable";
-import {Location} from "./type";
-import {CreateLocationDto, UpdateLocationDto} from "./dto";
+import {Client} from '../../../../abstract/client';
+import {Cookies} from '../../../../utils/type/cookies';
+import {Throwable} from '../../../../utils/type/throwable';
+import {Location} from './type';
+import {CreateLocationDto, UpdateLocationDto} from './dto';
 
 export class LocationClient extends Client {
   constructor(base: string, path: string, cookies: Cookies) {
@@ -10,18 +10,25 @@ export class LocationClient extends Client {
   }
 
   async getAll(): Promise<Throwable<Location[]>> {
-    return this.call<Throwable<Location[]>>('GET', null)
+    return this.call<Throwable<Location[]>>('GET', null);
   }
 
   async getById(id: string): Promise<Throwable<Location>> {
-    return this.call<Throwable<Location>>('GET', null, this.subPath(`/${id}`))
+    return this.call<Throwable<Location>>('GET', null, this.subPath(`/${id}`));
   }
 
   async create(dto: CreateLocationDto): Promise<Throwable<Location>> {
-    return this.call<Throwable<Location>>('POST', JSON.stringify(dto))
+    return this.call<Throwable<Location>>('POST', JSON.stringify(dto));
   }
 
-  async update(id: string, dto: UpdateLocationDto): Promise<Throwable<Location>> {
-    return this.call<Throwable<Location>>('PATCH', JSON.stringify(dto), this.subPath(`/${id}`))
+  async update(
+    id: string,
+    dto: UpdateLocationDto
+  ): Promise<Throwable<Location>> {
+    return this.call<Throwable<Location>>(
+      'PATCH',
+      JSON.stringify(dto),
+      this.subPath(`/${id}`)
+    );
   }
 }

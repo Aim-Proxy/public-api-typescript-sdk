@@ -1,3 +1,3 @@
 export interface UpdateLocationDto {
-  coefficient?: number
+  coefficient?: number;
 }
