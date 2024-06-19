@@ -10,11 +10,11 @@ export class BanClient extends Client {
     super(base, path, cookies);
   }
 
-  async my(): Promise<Throwable<Ban[]>> {
+  async getMy(): Promise<Throwable<Ban[]>> {
     return this.call('GET', null, this.subPath('/my'))
   }
 
-  async current(): Promise<Throwable<Nullable<Ban>>> {
+  async getCurrent(): Promise<Throwable<Nullable<Ban>>> {
     return this.call('GET', null, this.subPath('/current'))
   }
 
