@@ -2,7 +2,7 @@ import {Response as ApiResponse} from '../utils/type/response';
 import {Throwable} from '../utils/type/throwable';
 import {ApiError} from '../exception';
 import {Cookies} from '../utils/type/cookies';
-import {ClientsPool} from '../../index';
+import {ClientsPool} from '../index';
 
 export class Client {
   constructor(base: string, path: string, cookies: Cookies) {
