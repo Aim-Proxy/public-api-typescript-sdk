@@ -1,3 +1,3 @@
 export * from './dto';
 export * from './type';
-export * from './generic-coefficients.client'
+export * from './generic-coefficients.client';
