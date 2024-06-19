@@ -1,5 +1,5 @@
-import {Nullable} from "../../../utils/type/nullable";
-import {Invoice} from "./invoice";
+import {Nullable} from '../../../utils/type/nullable';
+import {Invoice} from './invoice';
 
 export interface Payment {
   id: string;

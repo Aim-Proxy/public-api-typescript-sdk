@@ -1,5 +1,5 @@
-import {ProxyFunctionValue} from "../../tariff/coefficient/proxy-function";
-import {AuthMethod} from "../../key";
+import {ProxyFunctionValue} from '../../tariff/coefficient/proxy-function';
+import {AuthMethod} from '../../key';
 
 export interface PaymentDetailsDto {
   replenishBalance?: ReplenishBalanceDetails;
