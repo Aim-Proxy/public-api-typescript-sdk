@@ -2,6 +2,7 @@ import {Cookies} from './utils/type/cookies';
 import {Client} from './abstract/client';
 import {UserClient} from './routes/user';
 import {AuthClient} from './routes/auth';
+import {BanClient} from "./routes/ban/ban.client";
 
 export const ClientsPool: Client[] = [];
 
@@ -16,7 +17,7 @@ export class PublicApiClient extends Client {
     this.payment = {};
     this.key = {};
     this.calculator = {};
-    this.ban = {};
+    this.ban = new BanClient(this.url, '/ban', cookies);
     this.auth = new AuthClient(this.url, '/auth', cookies);
   }
 
@@ -25,7 +26,7 @@ export class PublicApiClient extends Client {
   readonly payment: object;
   readonly key: object;
   readonly calculator: object;
-  readonly ban: object;
+  readonly ban: BanClient;
   readonly auth: AuthClient;
 }
 
