@@ -31,15 +31,3 @@ export class PublicApiClient extends Client {
   readonly auth: AuthClient;
 }
 
-async function main() {
-  const api = new PublicApiClient('http://localhost:8080');
-
-  // await api.auth.signIn({ email: "okolobaxha@yandex.ru" })
-
-  console.log(await api.auth.verify('14545b160cb9'));
-  console.log(
-    await api.auth.session.closeMy('d3add4c9-f026-45d0-94b3-0618743ece8a')
-  );
-}
-
-main();
