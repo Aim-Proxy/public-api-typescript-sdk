@@ -1,6 +1,6 @@
 import {ProxyFunctionValue} from '../../tariff/coefficient/proxy-function';
 import {AuthorizedIpAddress} from '../sensitive/authorized-ip-address';
-import {Nullable} from "../../../utils/type/nullable";
+import {Nullable} from '../../../utils/type/nullable';
 
 export interface Key {
   id: string;
@@ -23,7 +23,7 @@ export interface Key {
   metadata: {
     proxyList: Nullable<string[]>;
     authorizedIpAddresses: AuthorizedIpAddress[];
-  }
+  };
 }
 
 export enum AuthMethod {
