@@ -1,3 +1,3 @@
-import {Coefficient} from "../../type";
+import {Coefficient} from '../../type';
 
-export interface Subnet extends Coefficient<string> {}
+export type Subnet = Coefficient<string>;
