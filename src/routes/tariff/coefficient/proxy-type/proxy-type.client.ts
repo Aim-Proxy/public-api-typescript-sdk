@@ -17,6 +17,7 @@ export class ProxyTypeClient extends Client {
   ): Promise<Throwable<ProxyType>> {
     return this.call<Throwable<ProxyType>>(
       'GET',
+      null,
       this.subPath(`/${value}`)
     );
   }

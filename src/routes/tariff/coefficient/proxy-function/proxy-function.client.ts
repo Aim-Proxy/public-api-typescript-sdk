@@ -17,6 +17,7 @@ export class ProxyFunctionClient extends Client {
   ): Promise<Throwable<ProxyFunction>> {
     return this.call<Throwable<ProxyFunction>>(
       'GET',
+      null,
       this.subPath(`/${value}`)
     );
   }
