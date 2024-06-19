@@ -1,6 +1,6 @@
 import {Nullable} from './nullable';
 
 export interface Cookies {
-  authorization: Nullable<string>;
+  authentication: Nullable<string>;
   refresh: Nullable<string>;
 }

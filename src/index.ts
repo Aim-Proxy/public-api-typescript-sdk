@@ -9,7 +9,7 @@ export const ClientsPool: Client[] = [];
 
 export class PublicApiClient extends Client {
   constructor(base: string) {
-    const cookies: Cookies = {authorization: '', refresh: ''};
+    const cookies: Cookies = {authentication: '', refresh: ''};
 
     super(base, '', cookies);
 

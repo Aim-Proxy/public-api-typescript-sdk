@@ -67,14 +67,14 @@ export class Client {
         .split(';')[0]!;
 
     this.setCookies({
-      authorization: getCookie(header, 'Authentication'),
+      authentication: getCookie(header, 'Authentication'),
       refresh: getCookie(header, 'Refresh'),
     });
   }
 
   private getHeaders(): Record<string, any> {
     return {
-      Cookie: `Authentication=${this.cookies.authorization};Refresh=${this.cookies.refresh}`,
+      Cookie: `Authentication=${this.cookies.authentication};Refresh=${this.cookies.refresh}`,
       'Content-Type': 'application/json',
       Accept: 'application/json',
     };
