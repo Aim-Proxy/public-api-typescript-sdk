@@ -1,7 +1,7 @@
-import {Nullable} from "../../../utils/type/nullable";
-import {ProxyVersionValue} from "../coefficient/proxy-version";
-import {ProxyTypeValue} from "../coefficient/proxy-type";
-import {ProxyFunctionValue} from "../coefficient/proxy-function";
+import {Nullable} from '../../../utils/type/nullable';
+import {ProxyVersionValue} from '../coefficient/proxy-version';
+import {ProxyTypeValue} from '../coefficient/proxy-type';
+import {ProxyFunctionValue} from '../coefficient/proxy-function';
 
 export interface UpdateTariffDto {
   name?: string;

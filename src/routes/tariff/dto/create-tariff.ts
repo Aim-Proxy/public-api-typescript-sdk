@@ -1,6 +1,6 @@
-import {ProxyFunctionValue} from "../coefficient/proxy-function";
-import {ProxyVersionValue} from "../coefficient/proxy-version";
-import {ProxyTypeValue} from "../coefficient/proxy-type";
+import {ProxyFunctionValue} from '../coefficient/proxy-function';
+import {ProxyVersionValue} from '../coefficient/proxy-version';
+import {ProxyTypeValue} from '../coefficient/proxy-type';
 
 export interface CreateTariffDto {
   name: string;
